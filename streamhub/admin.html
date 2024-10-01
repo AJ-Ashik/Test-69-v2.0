@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - StreamHub</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/AJ-Ashik/API2/refs/heads/main/Colorful%20Abstract%20Illustrative%20G.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Firebase SDK v9 Modular -->
+    <script type="module" src="admin.js"></script>
+
+    <style>
+        body {
+            font-family: 'Oxanium', sans-serif;
+            background-color: #121212;
+            color: #FFFFFF;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #1E1E1E;
+            margin: 5px 0;
+            padding: 10px;
+        }
+        .channel-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .channel-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        .channel-info {
+            flex-grow: 1;
+        }
+        .channel-actions {
+            display: flex;
+            flex-direction: column;
+        }
+        .channel-actions button {
+            margin-top: 5px;
+        }
+        #admin-panel {
+            display: none; /* Hide admin panel until login */
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel - StreamHub</h1>
+
+    <!-- Login Form -->
+    <div id="login-panel">
+        <form id="login-form">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel">
+        <form id="channel-form">
+            <input type="text" id="channel-id" placeholder="Channel ID" required>
+            <input type="text" id="channel-name" placeholder="Channel Name" required>
+            <input type="text" id="channel-link" placeholder="Channel Link">
+            <input type="text" id="channel-genre" placeholder="Channel Genre">
+            <input type="text" id="channel-logo" placeholder="Channel Logo URL">
+            <button type="submit">Add Channel</button>
+        </form>
+
+        <h2>Channels</h2>
+        <ul id="channel-list">
+            <!-- List of channels will be dynamically generated here -->
+        </ul>
+    </div>
+    </div>
+    </body>
+</html>
