@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/AJ-Ashik/API2/refs/heads/main/Colorful%20Abstract%20Illustrative%20G.png" type="image/x-icon">
+  
+  <!-- Plyr CSS -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  
+  <!-- Plyr JS -->
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+
+  <style>
+    /* Smaller video player size */
+    .plyr__video-wrapper {
+      width: 100vw;
+      height: 90vw;
+      margin: 40px auto; /* Centering the player */
+      padding: 0;
+    }
+
+    /* Set body and html height and black background */
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: black; /* Set background color to black */
+    }
+    
+    /* Center the player */
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    /* Loading screen */
+    #loading-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-family: 'Arial', sans-serif;
+      z-index: 9999;
+    }
+
+    /* Loading text animation */
+    @keyframes loading {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    .loading-text {
+      animation: loading 1.5s infinite;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <span class="loading-text">Loading...</span>
+  </div>
+
+  <!-- Video Player Container -->
+  <div class="video-container">
+    <!-- Video Player -->
+    <video class="plyr" controls poster="">
+      <source src="" type="application/x-mpegURL" />
+    </video>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="player.js"></script>
+</body>
+</html>
