@@ -1,0 +1,24 @@
+{
+  "name": "StreamHub Live TV",
+  "version": "1.0.0",
+  "description": "A project to demonstrate Firebase integration",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo 'Building the project...'",  // এখানে আপনি প্রকল্পের জন্য আপনার বাস্তব build কমান্ডটি যুক্ত করবেন
+    "test": "echo 'No tests specified' && exit 0"
+  },
+  "keywords": [
+    "firebase",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "StreamHub",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^9.0.0"  // আপনার প্রকল্পের নির্ভরতাগুলি এখানে যুক্ত করুন
+  },
+  "devDependencies": {
+    // Dev dependencies যুক্ত করুন যদি প্রয়োজন হয়
+  }
+}
