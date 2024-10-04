@@ -1,88 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Player</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/AJ-Ashik/API2/refs/heads/main/Colorful%20Abstract%20Illustrative%20G.png" type="image/x-icon">
-  
-  <!-- Plyr CSS -->
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-  
-  <!-- Plyr JS -->
-  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-
-  <style>
-    /* Smaller video player size */
-    .plyr__video-wrapper {
-      width: 100vw;
-      height: 90vw;
-      margin: 40px auto; /* Centering the player */
-      padding: 0;
-    }
-
-    /* Set body and html height and black background */
-    body, html {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-color: black; /* Set background color to black */
-    }
-    
-    /* Center the player */
-    .video-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      position: relative;
-    }
-
-    /* Loading screen */
-    #loading-screen {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: black;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      font-family: 'Arial', sans-serif;
-      z-index: 9999;
-    }
-
-    /* Loading text animation */
-    @keyframes loading {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
-    }
-
-    .loading-text {
-      animation: loading 1.5s infinite;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Loading Screen -->
-  <div id="loading-screen">
-    <span class="loading-text">Loading...</span>
-  </div>
-
-  <!-- Video Player Container -->
-  <div class="video-container">
-    <!-- Video Player -->
-    <video class="plyr" controls poster="">
-      <source src="" type="application/x-mpegURL" />
-    </video>
-  </div>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/AJ-Ashik/API2/refs/heads/main/Colorful%20Abstract%20Illustrative%20G.png"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.6.2/dist/plyr.css" />
+  <script src="https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.1.4/dist/hls.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 
   <!-- Firebase SDK -->
-  <script type="module" src="player.js"></script>
+  	<script type="module" src="player.js"></script>
+  
+  <style>
+    html {
+      font-family: Poppins;
+      background: #000;
+      margin: 0;
+      padding: 0;
+    }
+    body { overflow: hidden; }
+    .loading-text { font-weight: bold !important; }
+    .plyr__video-wrapper::before {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+      content: '';
+      height: 35px;
+      width: 35px;
+      background-size: 35px auto, auto;
+    }
+    .plyr__video-wrapper::after {
+      position: absolute;
+      top: 100px;
+      left: 15px;
+      z-index: 15;
+      content: '';
+      height: 150px;
+      width: 350px;
+      background-size: 300px auto, auto;
+    }
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .loading-text {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+    .loading-text-words {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      animation: blur 3s linear infinite;
+      animation-delay: calc(0.3s * var(--i));
+    }
+    @keyframes blur {
+      0%, 100% { filter: blur(0px); }
+      50% { filter: blur(3px); }
+    }
+    #player-container { width: 100%; height: 100vh; }
+  </style>
+</head>
+
+<body>
+<div id="loading" class="loading">
+  <div class="loading-text">
+    <span class="loading-text-words" style="--i:0;">S </span>
+    <span class="loading-text-words" style="--i:1;">T </span>
+    <span class="loading-text-words" style="--i:2;">R </span>
+    <span class="loading-text-words" style="--i:3;">E </span>
+    <span class="loading-text-words" style="--i:4;">A </span>
+    <span class="loading-text-words" style="--i:5;">M </span>
+    <span class="loading-text-words" style="--i:6;">H </span>
+    <span class="loading-text-words" style="--i:7;">U </span>
+    <span class="loading-text-words" style="--i:8;">B </span>
+  </div>
+</div>
+<video id="player" autoplay controls crossorigin poster="assets/plyr-bg.jpg" playsinline>
+  <source src="" type="application/x-mpegURL">
+</video>
+
 </body>
 </html>
